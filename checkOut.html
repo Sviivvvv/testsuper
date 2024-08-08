@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supermarket|check-out</title>
+    <link rel="stylesheet" href="style2.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="apple-touch-icon" sizes="180x180" href="fav/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="fav/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="fav/favicon-16x16.png">
+    <link rel="manifest" href="fav/site.webmanifest">
+    <link rel="mask-icon" href="fav/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <script src="checkOut.js" async></script>
+
+</head>
+
+<body>
+    <header>
+        <div class="header">
+
+            <nav>
+                <div class="logo">
+
+                    <a href="index.html">
+                        <img src="images/logo.png" alt="Company Logo">
+                    </a>
+                    <div class="page_indicator">
+                        Check Out
+                    </div>
+                </div>
+                <div class="nav-links">
+                    <ul>
+                        <li><a href="./index.html">Home</a></li>
+                        <li><a href="./about.html">About</a></li>
+                        <li><a href="./products.html">Products</a></li>
+                        <li><a href="./order.html">Order</a></li>
+                        <li><a href="./loyaltyRegistration.html">Loyalty</a></li>
+
+                    </ul>
+                </div>
+
+
+            </nav>
+
+        </div>
+
+    </header>
+    <main>
+        <div>
+            <div class="order-card">
+                <label class="title">Payment Option</label>
+                <form class="form">
+                    <div class="payment-options">
+                        <label class="paymentLbl" for="card">
+                            <img src="images/card.png" alt="Card" class="payment-image">
+                            <input type="radio" name="payment" id="card">
+                        </label>
+
+
+                        <label class="paymentLbl" for="cash">
+                            <img src="images/cash.png" alt="Cash" class="payment-image">
+                            <input type="radio" name="payment" id="cash">
+                        </label>
+                    </div>
+                </form>
+
+            </div>
+            <div class="order-card">
+                <label class="title">Checkout Information</label>
+                <form class="form">
+                    <input type="text" placeholder="Full Name" class="input_field">
+                    <input type="text" placeholder="Address" class="input_field">
+                    <input type="number" placeholder="Postal Code" class="input_field">
+                    <input type="email" placeholder="Email" class="input_field">
+                    <input type="tel" placeholder="Phone Number" class="input_field">
+
+                    <input type="text" placeholder="Name on Card" class="input_field card-field ">
+                    <input type="number" placeholder="Card Number" class="input_field card-field">
+
+                    <label class="payment_label card-field">Expiration Date and Security Code</label>
+                    <div class="card-field">
+                        <select id="exp_month" name="exp_month" required>
+                            <option value="">--</option>
+                            <option value="01">01</option>
+                            <option value="02">02</option>
+                            <option value="03">03</option>
+                            <option value="04">04</option>
+                            <option value="05">05</option>
+                            <option value="06">06</option>
+                            <option value="07">07</option>
+                            <option value="08">08</option>
+                            <option value="09">09</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="11">11</option>
+                        </select>
+                        <select id="exp_year" name="exp_year" required>
+                            <option value="">----</option>
+                            <option value="2024">2024</option>
+                            <option value="2025">2025</option>
+                            <option value="2026">2026</option>
+                            <option value="2027">2027</option>
+                            <option value="2028">2028</option>
+                            <option value="2029">2029</option>
+                            <option value="2030">2030</option>
+                            <option value="2031">2031</option>
+                            <option value="2032">2032</option>
+                            <option value="2033">2033</option>
+                            <option value="2034">2034</option>
+                            <option value="2035">2035</option>
+                            <option value="2036">2036</option>
+                            <option value="2037">2037</option>
+                            <option value="2038">2038</option>
+                            <option value="2039">2039</option>
+                            <option value="2040">2040</option>
+                        </select>
+
+                        <input type="text" id="security_code" name="security_code" pattern="\d*" maxlength="3" required>
+                        <label for="security_code">(CVV)</label>
+
+
+
+                    </div>
+
+
+
+                </form>
+            </div>
+
+            <div class="order-card">
+                <label class="title">Order Summary</label>
+                <div class="details">
+                    <table id="orderTable">
+                        <thead>
+                            <tr>
+                                <th>Item</th>
+                                <th>Qty (Kg)</th>
+                                <th>Price (Rs)</th>
+                                <th>Total (Rs)</th>
+                            </tr>
+                        </thead>
+                        <tbody id="orderBody">
+
+
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="3">Total (Rs)</td>
+                                <td id="totalPrice">0.00</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+
+                </div>
+                <button id="pay" class="checkout-btn">Pay Now</button>
+            </div>
+        </div>
+    </main>
+
+
+
+
+
+    <footer>
+        <div class="contact_info">
+
+            <P>
+                GroceryStore<br>
+                Phone: 000-000-0000<br>
+                Main Branch: 2, 69 Hyde Park Corner, Colombo 00200 <br><br>
+            </P>
+            <h3>
+                Contact Us:
+            </h3>
+
+            <a href="mailto:CB014855@students.apiit.lk">
+                CB014855@students.apiit.lk
+            </a>
+
+        </div>
+        <div class="footer-social">
+            <a href="https://www.facebook.com/"><img src="images/facebook.png" alt="Facebook"></a>
+            <a href="https://x.com/?lang=en"><img src="images/twitter.png" alt="Twitter"></a>
+            <a href="https://www.instagram.com/accounts/login/?hl=en"><img src="images/instagram.png"
+                    alt="Instagram"></a>
+        </div>
+        <div class="newsletter_sub">
+            <form>
+                <label for="email">Subscribe To Our Newsletter:</label>
+                <input class="newsletter_input" type="email" id="email" name="email" required>
+                <button class="newsletter_btn" type="submit">Submit</button>
+            </form>
+        </div>
+    </footer>
+
+
+</body>
+
+</html>
